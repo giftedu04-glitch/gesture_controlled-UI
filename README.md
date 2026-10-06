@@ -1,5 +1,7 @@
 # Gesture Controlled UI
 
+[![CI](https://github.com/giftedu04-glitch/gesture-controlled-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/giftedu04-glitch/gesture-controlled-ui/actions/workflows/ci.yml)
+
 A colour-tracking gesture interface that controls a desktop app with your hand
 (via webcam) and an Arduino (via hall sensors + Bluetooth).
 
@@ -96,6 +98,18 @@ git-ignored.)
    the Arduino LED. Press key 2 to go back.
 
 Press `Esc` or `q` to quit.
+
+## Tests
+
+The tests are fully headless - the camera, GUI and serial port are all faked:
+
+```bash
+pip install pytest
+python -m pytest python/tests -q
+```
+
+GitHub Actions (`.github/workflows/ci.yml`) runs them on every push and pull
+request with Python 3.10 and 3.13.
 
 ## Key state mapping (Arduino → app)
 

@@ -100,43 +100,49 @@ class App:
         cv2.setMouseCallback(WINDOW_NAME, self._on_mouse)
         try:
             while True:
-                self.link.poll()
-                key1, key2 = self.link.key1, self.link.key2
-
-                self.tracker.read()
-                self.avg = self.tracker.update()
-
-                if key2:
-                    self.paint_screen = False
-                    self.led_screen = False
-                    self.move_paint = False
-                    self.move_led = False
-
-                window = np.zeros((WINDOW_H, WINDOW_W, 3), np.uint8)
-                if not self.calibrated:
-                    self._draw_calibration(window)
-                elif self.paint_screen:
-                    self._draw_paint(window, key1)
-                elif self.led_screen:
-                    self._draw_led(window, key1)
-                else:
-                    self._draw_ui(window, key1)
-
-                if self.calibrated and self.avg:
-                    cv2.circle(
-                        window,
-                        (int(self.avg[0]), int(self.avg[1])),
-                        8, TRACK_COLOR, -1,
-                    )
-
-                cv2.imshow(WINDOW_NAME, window)
-                key = cv2.waitKey(1) & 0xFF
-                if key in (27, ord("q")):
+                cv2.imshow(WINDOW_NAME, self.step())
+                if cv2.waitKey(1) & 0xFF in (27, ord("q")):
                     break
         finally:
             self.link.close()
             self.tracker.release()
             cv2.destroyAllWindows()
+
+    def step(self):
+        """Advance one frame and return the window image to display."""
+        self.link.poll()
+        key1, key2 = self.link.key1, self.link.key2
+
+        self.tracker.read()
+        self.avg = self.tracker.update()
+
+        if key2:
+            self.reset_screens()
+
+        window = np.zeros((WINDOW_H, WINDOW_W, 3), np.uint8)
+        if not self.calibrated:
+            self._draw_calibration(window)
+        elif self.paint_screen:
+            self._draw_paint(window, key1)
+        elif self.led_screen:
+            self._draw_led(window, key1)
+        else:
+            self._draw_ui(window, key1)
+
+        if self.calibrated and self.avg:
+            cv2.circle(
+                window,
+                (int(self.avg[0]), int(self.avg[1])),
+                8, TRACK_COLOR, -1,
+            )
+        return window
+
+    def reset_screens(self):
+        """key 2 returns to the main screen."""
+        self.paint_screen = False
+        self.led_screen = False
+        self.move_paint = False
+        self.move_led = False
 
     # ----------------------------------------------------------------- mouse
     def _on_mouse(self, event, x, y, flags, _param):
