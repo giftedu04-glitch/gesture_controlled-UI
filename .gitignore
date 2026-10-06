@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# placeholder images are generated at runtime - drop your own PNGs here
+python/assets/*.png
