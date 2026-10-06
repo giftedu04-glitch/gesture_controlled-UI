@@ -1,6 +1,6 @@
 # Gesture Controlled UI
 
-[![CI](https://github.com/giftedu04-glitch/gesture-controlled-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/giftedu04-glitch/gesture-controlled-ui/actions/workflows/ci.yml)
+[![CI](https://github.com/giftedu04-glitch/gesture_controlled-UI/actions/workflows/ci.yml/badge.svg)](https://github.com/giftedu04-glitch/gesture_controlled-UI/actions/workflows/ci.yml)
 
 A colour-tracking gesture interface that controls a desktop app with your hand
 (via webcam) and an Arduino (via hall sensors + Bluetooth).
@@ -57,8 +57,8 @@ as usual.
 Requires Python 3.9+ and a webcam.
 
 ```bash
-git clone https://github.com/giftedu04-glitch/gesture-controlled-ui.git
-cd gesture-controlled-ui
+git clone https://github.com/giftedu04-glitch/gesture_controlled-UI.git
+cd gesture_controlled-UI
 pip install -r requirements.txt
 ```
 
