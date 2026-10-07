@@ -138,6 +138,11 @@ python hdl/test_gesture_controller.py   # or: make -C hdl
 GitHub Actions (`.github/workflows/hdl.yml`) runs the same suite on every push
 and pull request (Icarus via `apt`, cocotb via `pip`).
 
+A rendered snapshot of the results - circuit diagram, gesture-to-byte mapping,
+the interactive simulated waveform (0-1404 ns, Icarus VCD dump) and per-test
+detail for both suites - is checked in at
+[docs/test_results.html](docs/test_results.html).
+
 ## Key state mapping (Arduino → app)
 
 | Byte | Hall sensor 1 | Hall sensor 2 | key 1 | key 2 |
