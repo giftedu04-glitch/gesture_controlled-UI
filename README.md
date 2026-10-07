@@ -39,7 +39,7 @@ unchanged in behaviour and lives in `arduino/`.
 │   ├── tracker.py                   # webcam colour tracking (captureEvent + pixel loop)
 │   ├── serial_link.py               # Bluetooth link (Serial object)
 │   ├── assets.py                    # image loading with generated placeholders
-│   └── assets/                      # drop Done.png, Aisha.png, ... here
+│   └── assets/                      # the six UI PNGs (regenerate: generate.py)
 ├── requirements.txt
 └── README.md
 ```
@@ -89,10 +89,11 @@ without hardware).
 ### Images
 
 The original sketch loaded `Done.png`, `Aisha.png`, `Paint.png`,
-`LED_Toggle.png`, `LED_on.png` and `LED_off.png`. Place your own copies in
-`python/assets/` and they will be used automatically; if a file is missing a
-labelled placeholder is generated so the app still runs. (Generated PNGs are
-git-ignored.)
+`LED_Toggle.png`, `LED_on.png` and `LED_off.png`. All six are checked in under
+`python/assets/`; drop your own copies over them and they will be used
+automatically (any file you delete is regenerated as a labelled placeholder so
+the app still runs). Recreate the defaults with
+`python python/assets/generate.py`.
 
 ## Using the app
 

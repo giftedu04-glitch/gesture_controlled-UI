@@ -1,4 +1,4 @@
-Drop your own UI images here (PNG), using these exact names:
+UI images used by the app (PNG), with these exact names:
 
 - `Done.png`       - calibration DONE button
 - `Aisha.png`      - main screen background (800x600)
@@ -7,4 +7,7 @@ Drop your own UI images here (PNG), using these exact names:
 - `LED_on.png`     - LED ON button
 - `LED_off.png`    - LED OFF button
 
-Any file you do not provide is generated as a labelled placeholder at startup.
+The checked-in defaults are drawn by `generate.py` - run
+`python python/assets/generate.py` to recreate them, or drop your own PNGs
+over them. Any file you delete is generated as a labelled placeholder at
+startup.
