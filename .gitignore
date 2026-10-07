@@ -3,5 +3,9 @@ __pycache__/
 .venv/
 venv/
 
+# cocotb / Icarus build artefacts
+hdl/sim_build/
+hdl/results.xml
+
 # placeholder images are generated at runtime - drop your own PNGs here
 python/assets/*.png

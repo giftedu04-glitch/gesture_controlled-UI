@@ -29,6 +29,10 @@ unchanged in behaviour and lives in `arduino/`.
 ├── arduino/
 │   └── gesture_controller/
 │       └── gesture_controller.ino   # firmware (unchanged behaviour)
+├── hdl/
+│   ├── gesture_controller.v         # Verilog model of the firmware
+│   ├── test_gesture_controller.py   # cocotb testbench
+│   └── Makefile                     # `make test` wrapper
 ├── python/
 │   ├── main.py                      # entry point / CLI flags
 │   ├── app.py                       # screens + main loop (ported from Processing)
@@ -51,6 +55,12 @@ unchanged in behaviour and lives in `arduino/`.
 
 Upload `arduino/gesture_controller/gesture_controller.ino` with the Arduino IDE
 as usual.
+
+The full bill of materials for assembling the circuit (Arduino Nano, 2x A3144
+hall sensors, a small magnet on the thumb, HC-05/HC-06 Bluetooth module, 9V
+battery, dot board, gloves, ...) is listed in the
+[Circuit Digest VR project](https://circuitdigest.com/microcontroller-projects/virtual-reality-using-arduino)
+this repository is based on.
 
 ## Software setup
 
@@ -110,6 +120,23 @@ python -m pytest python/tests -q
 
 GitHub Actions (`.github/workflows/ci.yml`) runs them on every push and pull
 request with Python 3.10 and 3.13.
+
+### HDL tests (cocotb + Verilog)
+
+`hdl/` contains a cycle-accurate Verilog model of the Arduino firmware
+(`hdl/gesture_controller.v`) and a cocotb testbench that proves the behaviour
+documented below: the hall-sensor combination → Bluetooth byte mapping (bytes
+1-4, sent only when the combination changes) and the `y` / `n` LED control.
+
+Requirements: [Icarus Verilog](https://steveicarus.github.io/iverilog/) on your
+PATH and cocotb (`pip install cocotb`), then:
+
+```bash
+python hdl/test_gesture_controller.py   # or: make -C hdl
+```
+
+GitHub Actions (`.github/workflows/hdl.yml`) runs the same suite on every push
+and pull request (Icarus via `apt`, cocotb via `pip`).
 
 ## Key state mapping (Arduino → app)
 
