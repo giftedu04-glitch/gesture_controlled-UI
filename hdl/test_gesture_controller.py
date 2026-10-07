@@ -215,7 +215,9 @@ if __name__ == "__main__":
     from cocotb_tools.runner import get_runner
 
     here = Path(__file__).resolve().parent
-    sim = sys.argv[1] if len(sys.argv) > 1 else "icarus"
+    positional = [a for a in sys.argv[1:] if not a.startswith("-")]
+    sim = positional[0] if positional else "icarus"
+    waves = "--waves" in sys.argv
 
     runner = get_runner(sim)
     runner.build(
@@ -223,12 +225,30 @@ if __name__ == "__main__":
         hdl_toplevel="gesture_controller",
         build_dir=here / "sim_build",
         timescale=("1ns", "1ps"),
+        waves=waves,
+        always=waves,
     )
+
+    test_kwargs = {}
+    if waves:
+        # cocotb forces vvp's -fst flag, which makes Icarus write binary FST
+        # regardless of the dump file name; drop it so we get a text VCD
+        # (hdl/sim_build/waves.vcd) that tooling can parse.
+        original = runner._test_command
+
+        def _vcd_command():
+            return [[a for a in cmd if a != "-fst"] for cmd in original()]
+
+        runner._test_command = _vcd_command
+        vcd = (here / "sim_build" / "waves.vcd").as_posix()
+        test_kwargs = {"waves": True, "plusargs": [f"+dumpfile_path={vcd}"]}
+
     results = runner.test(
         hdl_toplevel="gesture_controller",
         test_module="test_gesture_controller",
         build_dir=here / "sim_build",
         test_dir=here,
+        **test_kwargs,
     )
     num_tests, num_failed = get_results(results)
     print(f"HDL: {num_tests - num_failed}/{num_tests} tests passed")

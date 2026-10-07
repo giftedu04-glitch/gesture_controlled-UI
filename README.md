@@ -132,11 +132,18 @@ Requirements: [Icarus Verilog](https://steveicarus.github.io/iverilog/) on your
 PATH and cocotb (`pip install cocotb`), then:
 
 ```bash
-python hdl/test_gesture_controller.py   # or: make -C hdl
+python hdl/test_gesture_controller.py            # fast, no wave dump
+python hdl/test_gesture_controller.py --waves    # also writes hdl/sim_build/waves.vcd
 ```
 
+(or `make -C hdl`)
+
 GitHub Actions (`.github/workflows/hdl.yml`) runs the same suite on every push
-and pull request (Icarus via `apt`, cocotb via `pip`).
+and pull request (Icarus via `apt`, cocotb via `pip`), then generates the
+visual report below from the VCD + JUnit XML and uploads it as the
+**`visual-test-results` artifact** of the run (HTML report, `waves.vcd`,
+`results.xml`, `pytest_junit.xml`; kept for 90 days). Download it from the run
+summary page of the *HDL* workflow.
 
 A rendered snapshot of the results - circuit diagram, gesture-to-byte mapping,
 the interactive simulated waveform (0-1404 ns, Icarus VCD dump) and per-test

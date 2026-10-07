@@ -6,10 +6,12 @@ body{margin:0;background:#0d1117;color:#e6edf3;font-family:'Segoe UI',Roboto,san
 .wrap{max-width:1680px;margin:0 auto;padding:28px 24px 60px}
 h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf3;
  text-transform:uppercase;letter-spacing:.08em}
-.sub{color:#8b949e;font-size:13px;margin-bottom:18px}
+.sub{color:#8b949e;font-size:13px;margin-bottom:18px} .sub a{color:#58a6ff}
 .badge{display:inline-block;background:#238636;color:#fff;padding:7px 16px;border-radius:20px;
  font-weight:700;font-size:15px;margin-bottom:26px}
+.badge.bad{background:#cf222e}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:26px}
+.grid.one{grid-template-columns:1fr}
 .card{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px}
 .gcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
 .gcard{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px;text-align:center}
@@ -23,36 +25,31 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 .pill.on{background:#238636;color:#fff}
 .trow{display:flex;align-items:center;gap:9px;padding:5px 2px;border-bottom:1px solid #21262d;
  font-size:12.5px} .trow:last-child{border-bottom:none}
-.mark{width:14px;font-weight:700} .tname{flex:1;color:#c9d1d9;overflow:hidden;text-overflow:ellipsis;
- white-space:nowrap} .ttime{color:#8b949e;font-size:11px}
+.mark{width:14px;font-weight:700} .tname{flex:1;color:#c9d1d9;overflow:hidden;
+ text-overflow:ellipsis;white-space:nowrap} .ttime{color:#8b949e;font-size:11px}
 .wavebox{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px;overflow-x:auto;
- position:relative;margin-bottom:26px}
-.wavebox svg{display:block}
+ position:relative;margin-bottom:14px} .wavebox svg{display:block}
 .band{fill:#8b949e;font-size:10.5px;font-weight:600}
 .axis{fill:#6e7681;font-size:9.5px} .sig{font-size:11.5px;font-weight:600}
 .bus{fill:#e6edf3;font-size:11px;font-weight:600} .chip{fill:#fff;font-size:10.5px;font-weight:700}
 #tip{position:absolute;background:#0d1117f2;border:1px solid #f85149;border-radius:8px;padding:8px 11px;
  font-size:11.5px;pointer-events:none;display:none;z-index:9;white-space:nowrap;line-height:1.55;
- box-shadow:0 6px 18px #000a}
-#tip b{color:#ffab70}
+ box-shadow:0 6px 18px #000a} #tip b{color:#ffab70}
 .circuit{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:14px;margin-bottom:26px}
-.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#8b949e;margin:10px 2px 0}
-.legend span b{color:#e6edf3}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:#8b949e;margin:0 2px 26px}
 .foot{color:#484f58;font-size:11.5px;margin-top:26px}
 </style></head><body><div class="wrap">
 
 <h1>gesture_controlled-UI &mdash; visual test results</h1>
-<div class="sub">commit 50ace95 &middot; 2026-10-07 11:30 &middot;
- simulated 1404 ns of firmware behaviour with cocotb 2.1.0 + Icarus Verilog 12 (VCD dump)</div>
+<div class="sub">commit be5df43 &middot; generated 2026-10-07 11:54 UTC
+ &middot; cocotb 2.1.0 + Icarus Verilog (VCD dump)</div>
 <div class="badge">16/16 TESTS PASSING</div>
 
 <h2>Gesture gloves &rarr; circuit (Circuit Digest BOM)</h2>
 <div class="circuit">
 <svg viewBox="0 0 1240 250" width="100%" style="max-height:270px">
  <defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
-  <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/></marker>
-  <marker id="ag" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
-  <path d="M0,0 L0,6 L8,3 z" fill="#3fb950"/></marker></defs>
+  <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/></marker></defs>
  <rect x="14" y="34" width="230" height="180" rx="12" fill="#21262d" stroke="#30363d"/>
  <text x="129" y="58" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="700">Gesture glove</text>
  <circle cx="66" cy="110" r="17" fill="#d29922"/><text x="66" y="114" text-anchor="middle" font-size="10" fill="#0d1117" font-weight="700">mag</text>
@@ -62,48 +59,41 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
  <rect x="120" y="146" width="102" height="30" rx="7" fill="#238636"/>
  <text x="171" y="165" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">A3144 hall 2</text>
  <text x="129" y="200" text-anchor="middle" fill="#8b949e" font-size="10.5">index / middle finger</text>
-
  <line x1="222" y1="107" x2="316" y2="92" stroke="#8b949e" stroke-width="1.6" marker-end="url(#a)"/>
  <line x1="222" y1="161" x2="316" y2="172" stroke="#8b949e" stroke-width="1.6" marker-end="url(#a)"/>
  <text x="268" y="88" fill="#8b949e" font-size="10.5">D9</text>
  <text x="268" y="192" fill="#8b949e" font-size="10.5">D10</text>
-
  <rect x="320" y="34" width="240" height="180" rx="12" fill="#161b22" stroke="#58a6ff"/>
  <text x="440" y="58" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="700">Arduino Nano</text>
  <text x="340" y="88" fill="#c9d1d9" font-size="11.5">loop(): read hall D9/D10</text>
- <text x="340" y="110" fill="#c9d1d9" font-size="11.5">on change &rarr; write byte 1-4</text>
- <text x="340" y="132" fill="#c9d1d9" font-size="11.5">read BT: 'y'/'n' &rarr; LED</text>
+ <text x="340" y="110" fill="#c9d1d9" font-size="11.5">on change -&gt; write byte 1-4</text>
+ <text x="340" y="132" fill="#c9d1d9" font-size="11.5">read BT: 'y'/'n' -&gt; LED</text>
  <text x="340" y="162" fill="#8b949e" font-size="11">SoftwareSerial 9600 (D11/D12)</text>
  <circle cx="352" cy="190" r="9" fill="#ffab70"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
  <text x="370" y="194" fill="#ffab70" font-size="11.5" font-weight="600">LED D13</text>
-
  <line x1="560" y1="110" x2="646" y2="110" stroke="#8b949e" stroke-width="1.6" marker-end="url(#a)"/>
  <line x1="646" y1="140" x2="560" y2="140" stroke="#8b949e" stroke-width="1.6" marker-end="url(#a)"/>
  <text x="603" y="102" text-anchor="middle" fill="#8b949e" font-size="10.5">D11 TX</text>
  <text x="603" y="160" text-anchor="middle" fill="#8b949e" font-size="10.5">D12 RX</text>
-
  <rect x="650" y="70" width="150" height="90" rx="12" fill="#21262d" stroke="#30363d"/>
  <text x="725" y="104" text-anchor="middle" fill="#e6edf3" font-size="13.5" font-weight="700">HC-05</text>
  <text x="725" y="126" text-anchor="middle" fill="#8b949e" font-size="11">Bluetooth</text>
  <path d="M810 88 q18 26 0 52" stroke="#3fb950" fill="none" stroke-width="2" opacity=".85"/>
  <path d="M828 76 q28 40 0 80" stroke="#3fb950" fill="none" stroke-width="2" opacity=".5"/>
  <path d="M846 64 q38 52 0 108" stroke="#3fb950" fill="none" stroke-width="2" opacity=".25"/>
-
  <rect x="880" y="34" width="346" height="180" rx="12" fill="#161b22" stroke="#30363d"/>
  <text x="1053" y="58" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="700">Desktop app (Python + webcam)</text>
- <text x="900" y="88" fill="#c9d1d9" font-size="11.5">colour tracker &rarr; pointer follows your hand</text>
- <text x="900" y="112" fill="#c9d1d9" font-size="11.5">bytes 1-4 &rarr; key 1 / key 2 gestures</text>
- <text x="900" y="136" fill="#c9d1d9" font-size="11.5">Paint screen &middot; LED screen &middot; drag icons</text>
+ <text x="900" y="88" fill="#c9d1d9" font-size="11.5">colour tracker -&gt; pointer follows your hand</text>
+ <text x="900" y="112" fill="#c9d1d9" font-size="11.5">bytes 1-4 -&gt; key 1 / key 2 gestures</text>
+ <text x="900" y="136" fill="#c9d1d9" font-size="11.5">Paint screen - LED screen - drag icons</text>
  <text x="900" y="166" fill="#3fb950" font-size="11.5">sends 'y' / 'n' when you toggle the LED</text>
- <line x1="900" y1="196" x2="1210" y2="196" stroke="#21262d"/>
- <text x="1053" y="214" text-anchor="middle" fill="#8b949e" font-size="10.5">keys 1/2 = hall sensor states (read on this machine's tests)</text>
-</svg>
-</div>
+</svg></div>
 
 <h2>Key state mapping &mdash; what each gesture sends</h2>
 <div class="gcards"><div class="gcard"><div class="dots"><div class="dot" style="background:#484f58"><span>S1</span></div><div class="dot" style="background:#484f58"><span>S2</span></div></div><div class="byte">1</div><div class="gvals">LOW / LOW</div><div class="pills"><span class="pill on">key 1 True</span><span class="pill on">key 2 True</span></div></div><div class="gcard"><div class="dots"><div class="dot" style="background:#3fb950"><span>S1</span></div><div class="dot" style="background:#484f58"><span>S2</span></div></div><div class="byte">2</div><div class="gvals">HIGH / LOW</div><div class="pills"><span class="pill off">key 1 False</span><span class="pill on">key 2 True</span></div></div><div class="gcard"><div class="dots"><div class="dot" style="background:#484f58"><span>S1</span></div><div class="dot" style="background:#3fb950"><span>S2</span></div></div><div class="byte">3</div><div class="gvals">LOW / HIGH</div><div class="pills"><span class="pill on">key 1 True</span><span class="pill off">key 2 False</span></div></div><div class="gcard"><div class="dots"><div class="dot" style="background:#3fb950"><span>S1</span></div><div class="dot" style="background:#3fb950"><span>S2</span></div></div><div class="byte">4</div><div class="gvals">HIGH / HIGH</div><div class="pills"><span class="pill off">key 1 False</span><span class="pill off">key 2 False</span></div></div></div>
 
-<h2>Simulated waveform &mdash; all 7 cocotb tests, 0&ndash;1404 ns</h2>
+<h2>Simulated waveform &mdash; 7 cocotb tests, 0&ndash;1404.01 ns</h2>
+
 <div class="wavebox" id="wavebox">
 <svg id="wsvg" width="1620" height="382" viewBox="0 0 1620 382">
 <rect x="138.0" y="0" width="127.6" height="382" fill="#161b22"/>
@@ -114,8 +104,8 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="386.8" y="17" text-anchor="middle" class="band">2. hall_state_bytes</text>
 <rect x="508.1" y="0" width="85.7" height="382" fill="#161b22"/>
 <line x1="508.1" y1="0" x2="508.1" y2="382" stroke="#30363d" stroke-dasharray="3,3"/>
-<text x="551.0" y="17" text-anchor="middle" class="band">3. simultaneous_change</text>
-<rect x="593.9" y="0" width="556.3" height="382" fill="#1c2129"/>
+<text x="551.0" y="17" text-anchor="middle" class="band">3. simultaneous_change_emits_once</text>
+<rect x="593.9" y="0" width="556.2" height="382" fill="#1c2129"/>
 <line x1="593.9" y1="0" x2="593.9" y2="382" stroke="#30363d" stroke-dasharray="3,3"/>
 <text x="872.0" y="17" text-anchor="middle" class="band">4. no_repeat_while_held</text>
 <rect x="1150.1" y="0" width="158.9" height="382" fill="#161b22"/>
@@ -123,7 +113,7 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="1229.6" y="17" text-anchor="middle" class="band">5. led_toggle</text>
 <rect x="1309.1" y="0" width="200.8" height="382" fill="#1c2129"/>
 <line x1="1309.1" y1="0" x2="1309.1" y2="382" stroke="#30363d" stroke-dasharray="3,3"/>
-<text x="1409.4" y="17" text-anchor="middle" class="band">6. unknown_rx_ignored</text>
+<text x="1409.4" y="17" text-anchor="middle" class="band">6. unknown_rx_byte_ignored</text>
 <rect x="1509.8" y="0" width="96.2" height="382" fill="#161b22"/>
 <line x1="1509.8" y1="0" x2="1509.8" y2="382" stroke="#30363d" stroke-dasharray="3,3"/>
 <text x="1557.9" y="17" text-anchor="middle" class="band">7. interleaved_tx_rx</text>
@@ -141,8 +131,8 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="556.2" y="38" text-anchor="middle" class="axis">400</text>
 <line x1="660.8" y1="40" x2="660.8" y2="48" stroke="#484f58"/>
 <text x="660.8" y="38" text-anchor="middle" class="axis">500</text>
-<line x1="765.4" y1="40" x2="765.4" y2="48" stroke="#484f58"/>
-<text x="765.4" y="38" text-anchor="middle" class="axis">600</text>
+<line x1="765.3" y1="40" x2="765.3" y2="48" stroke="#484f58"/>
+<text x="765.3" y="38" text-anchor="middle" class="axis">600</text>
 <line x1="869.9" y1="40" x2="869.9" y2="48" stroke="#484f58"/>
 <text x="869.9" y="38" text-anchor="middle" class="axis">700</text>
 <line x1="974.5" y1="40" x2="974.5" y2="48" stroke="#484f58"/>
@@ -162,7 +152,7 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="1606" y="60" text-anchor="end" class="axis">time (ns)</text>
 <text x="12" y="83" class="sig" fill="#58a6ff">clk</text>
 <line x1="138" y1="95" x2="1606" y2="95" stroke="#21262d"/>
-<path d="M 138.0 71 L 138.0 71 L 138.0 71 L 143.2 71 L 143.2 87 L 148.5 87 L 148.5 71 L 153.7 71 L 153.7 87 L 158.9 87 L 158.9 71 L 164.1 71 L 164.1 87 L 169.4 87 L 169.4 71 L 174.6 71 L 174.6 87 L 179.8 87 L 179.8 71 L 185.1 71 L 185.1 87 L 190.3 87 L 190.3 71 L 195.5 71 L 195.5 87 L 200.7 87 L 200.7 71 L 206.0 71 L 206.0 87 L 211.2 87 L 211.2 71 L 216.4 71 L 216.4 87 L 221.6 87 L 221.6 71 L 226.9 71 L 226.9 87 L 232.1 87 L 232.1 71 L 237.3 71 L 237.3 87 L 242.6 87 L 242.6 71 L 247.8 71 L 247.8 87 L 253.0 87 L 253.0 71 L 258.2 71 L 258.2 87 L 263.5 87 L 263.5 71 L 270.8 71 L 270.8 87 L 276.0 87 L 276.0 71 L 281.2 71 L 281.2 87 L 286.5 87 L 286.5 71 L 291.7 71 L 291.7 87 L 296.9 87 L 296.9 71 L 302.2 71 L 302.2 87 L 307.4 87 L 307.4 71 L 312.6 71 L 312.6 87 L 317.8 87 L 317.8 71 L 323.1 71 L 323.1 87 L 328.3 87 L 328.3 71 L 333.5 71 L 333.5 87 L 338.8 87 L 338.8 71 L 344.0 71 L 344.0 87 L 349.2 87 L 349.2 71 L 354.4 71 L 354.4 87 L 359.7 87 L 359.7 71 L 364.9 71 L 364.9 87 L 370.1 87 L 370.1 71 L 375.3 71 L 375.3 87 L 380.6 87 L 380.6 71 L 385.8 71 L 385.8 87 L 391.0 87 L 391.0 71 L 396.3 71 L 396.3 87 L 401.5 87 L 401.5 71 L 406.7 71 L 406.7 87 L 411.9 87 L 411.9 71 L 417.2 71 L 417.2 87 L 422.4 87 L 422.4 71 L 427.6 71 L 427.6 87 L 432.9 87 L 432.9 71 L 438.1 71 L 438.1 87 L 443.3 87 L 443.3 71 L 448.5 71 L 448.5 87 L 453.8 87 L 453.8 71 L 459.0 71 L 459.0 87 L 464.2 87 L 464.2 71 L 469.5 71 L 469.5 87 L 474.7 87 L 474.7 71 L 479.9 71 L 479.9 87 L 485.1 87 L 485.1 71 L 490.4 71 L 490.4 87 L 495.6 87 L 495.6 71 L 500.8 71 L 500.8 87 L 506.0 87 L 506.0 71 L 513.4 71 L 513.4 87 L 518.6 87 L 518.6 71 L 523.8 71 L 523.8 87 L 529.1 87 L 529.1 71 L 534.3 71 L 534.3 87 L 539.5 87 L 539.5 71 L 544.7 71 L 544.7 87 L 550.0 87 L 550.0 71 L 555.2 71 L 555.2 87 L 560.4 87 L 560.4 71 L 565.6 71 L 565.6 87 L 570.9 87 L 570.9 71 L 576.1 71 L 576.1 87 L 581.3 87 L 581.3 71 L 586.6 71 L 586.6 87 L 591.8 87 L 591.8 71 L 599.1 71 L 599.1 87 L 604.3 87 L 604.3 71 L 609.6 71 L 609.6 87 L 614.8 87 L 614.8 71 L 620.0 71 L 620.0 87 L 625.2 87 L 625.2 71 L 630.5 71 L 630.5 87 L 635.7 87 L 635.7 71 L 640.9 71 L 640.9 87 L 646.2 87 L 646.2 71 L 651.4 71 L 651.4 87 L 656.6 87 L 656.6 71 L 661.8 71 L 661.8 87 L 667.1 87 L 667.1 71 L 672.3 71 L 672.3 87 L 677.5 87 L 677.5 71 L 682.8 71 L 682.8 87 L 688.0 87 L 688.0 71 L 693.2 71 L 693.2 87 L 698.4 87 L 698.4 71 L 703.7 71 L 703.7 87 L 708.9 87 L 708.9 71 L 714.1 71 L 714.1 87 L 719.3 87 L 719.3 71 L 724.6 71 L 724.6 87 L 729.8 87 L 729.8 71 L 735.0 71 L 735.0 87 L 740.3 87 L 740.3 71 L 745.5 71 L 745.5 87 L 750.7 87 L 750.7 71 L 755.9 71 L 755.9 87 L 761.2 87 L 761.2 71 L 766.4 71 L 766.4 87 L 771.6 87 L 771.6 71 L 776.9 71 L 776.9 87 L 782.1 87 L 782.1 71 L 787.3 71 L 787.3 87 L 792.5 87 L 792.5 71 L 797.8 71 L 797.8 87 L 803.0 87 L 803.0 71 L 808.2 71 L 808.2 87 L 813.5 87 L 813.5 71 L 818.7 71 L 818.7 87 L 823.9 87 L 823.9 71 L 829.1 71 L 829.1 87 L 834.4 87 L 834.4 71 L 839.6 71 L 839.6 87 L 844.8 87 L 844.8 71 L 850.0 71 L 850.0 87 L 855.3 87 L 855.3 71 L 860.5 71 L 860.5 87 L 865.7 87 L 865.7 71 L 871.0 71 L 871.0 87 L 876.2 87 L 876.2 71 L 881.4 71 L 881.4 87 L 886.6 87 L 886.6 71 L 891.9 71 L 891.9 87 L 897.1 87 L 897.1 71 L 902.3 71 L 902.3 87 L 907.6 87 L 907.6 71 L 912.8 71 L 912.8 87 L 918.0 87 L 918.0 71 L 923.2 71 L 923.2 87 L 928.5 87 L 928.5 71 L 933.7 71 L 933.7 87 L 938.9 87 L 938.9 71 L 944.1 71 L 944.1 87 L 949.4 87 L 949.4 71 L 954.6 71 L 954.6 87 L 959.8 87 L 959.8 71 L 965.1 71 L 965.1 87 L 970.3 87 L 970.3 71 L 975.5 71 L 975.5 87 L 980.7 87 L 980.7 71 L 986.0 71 L 986.0 87 L 991.2 87 L 991.2 71 L 996.4 71 L 996.4 87 L 1001.7 87 L 1001.7 71 L 1006.9 71 L 1006.9 87 L 1012.1 87 L 1012.1 71 L 1017.3 71 L 1017.3 87 L 1022.6 87 L 1022.6 71 L 1027.8 71 L 1027.8 87 L 1033.0 87 L 1033.0 71 L 1038.3 71 L 1038.3 87 L 1043.5 87 L 1043.5 71 L 1048.7 71 L 1048.7 87 L 1053.9 87 L 1053.9 71 L 1059.2 71 L 1059.2 87 L 1064.4 87 L 1064.4 71 L 1069.6 71 L 1069.6 87 L 1074.8 87 L 1074.8 71 L 1080.1 71 L 1080.1 87 L 1085.3 87 L 1085.3 71 L 1090.5 71 L 1090.5 87 L 1095.8 87 L 1095.8 71 L 1101.0 71 L 1101.0 87 L 1106.2 87 L 1106.2 71 L 1111.4 71 L 1111.4 87 L 1116.7 87 L 1116.7 71 L 1121.9 71 L 1121.9 87 L 1127.1 87 L 1127.1 71 L 1132.4 71 L 1132.4 87 L 1137.6 87 L 1137.6 71 L 1142.8 71 L 1142.8 87 L 1148.0 87 L 1148.0 71 L 1155.4 71 L 1155.4 87 L 1160.6 87 L 1160.6 71 L 1165.8 71 L 1165.8 87 L 1171.0 87 L 1171.0 71 L 1176.3 71 L 1176.3 87 L 1181.5 87 L 1181.5 71 L 1186.7 71 L 1186.7 87 L 1192.0 87 L 1192.0 71 L 1197.2 71 L 1197.2 87 L 1202.4 87 L 1202.4 71 L 1207.6 71 L 1207.6 87 L 1212.9 87 L 1212.9 71 L 1218.1 71 L 1218.1 87 L 1223.3 87 L 1223.3 71 L 1228.5 71 L 1228.5 87 L 1233.8 87 L 1233.8 71 L 1239.0 71 L 1239.0 87 L 1244.2 87 L 1244.2 71 L 1249.5 71 L 1249.5 87 L 1254.7 87 L 1254.7 71 L 1259.9 71 L 1259.9 87 L 1265.1 87 L 1265.1 71 L 1270.4 71 L 1270.4 87 L 1275.6 87 L 1275.6 71 L 1280.8 71 L 1280.8 87 L 1286.1 87 L 1286.1 71 L 1291.3 71 L 1291.3 87 L 1296.5 87 L 1296.5 71 L 1301.7 71 L 1301.7 87 L 1307.0 87 L 1307.0 71 L 1314.3 71 L 1314.3 87 L 1319.5 87 L 1319.5 71 L 1324.7 71 L 1324.7 87 L 1330.0 87 L 1330.0 71 L 1335.2 71 L 1335.2 87 L 1340.4 87 L 1340.4 71 L 1345.7 71 L 1345.7 87 L 1350.9 87 L 1350.9 71 L 1356.1 71 L 1356.1 87 L 1361.3 87 L 1361.3 71 L 1366.6 71 L 1366.6 87 L 1371.8 87 L 1371.8 71 L 1377.0 71 L 1377.0 87 L 1382.3 87 L 1382.3 71 L 1387.5 71 L 1387.5 87 L 1392.7 87 L 1392.7 71 L 1397.9 71 L 1397.9 87 L 1403.2 87 L 1403.2 71 L 1408.4 71 L 1408.4 87 L 1413.6 87 L 1413.6 71 L 1418.8 71 L 1418.8 87 L 1424.1 87 L 1424.1 71 L 1429.3 71 L 1429.3 87 L 1434.5 87 L 1434.5 71 L 1439.8 71 L 1439.8 87 L 1445.0 87 L 1445.0 71 L 1450.2 71 L 1450.2 87 L 1455.4 87 L 1455.4 71 L 1460.7 71 L 1460.7 87 L 1465.9 87 L 1465.9 71 L 1471.1 71 L 1471.1 87 L 1476.4 87 L 1476.4 71 L 1481.6 71 L 1481.6 87 L 1486.8 87 L 1486.8 71 L 1492.0 71 L 1492.0 87 L 1497.3 87 L 1497.3 71 L 1502.5 71 L 1502.5 87 L 1507.7 87 L 1507.7 71 L 1515.0 71 L 1515.0 87 L 1520.3 87 L 1520.3 71 L 1525.5 71 L 1525.5 87 L 1530.7 87 L 1530.7 71 L 1536.0 71 L 1536.0 87 L 1541.2 87 L 1541.2 71 L 1546.4 71 L 1546.4 87 L 1551.6 87 L 1551.6 71 L 1556.9 71 L 1556.9 87 L 1562.1 87 L 1562.1 71 L 1567.3 71 L 1567.3 87 L 1572.5 87 L 1572.5 71 L 1577.8 71 L 1577.8 87 L 1583.0 87 L 1583.0 71 L 1588.2 71 L 1588.2 87 L 1593.5 87 L 1593.5 71 L 1598.7 71 L 1598.7 87 L 1603.9 87 L 1603.9 71 L 1606.0 71" fill="none" stroke="#58a6ff" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M 138.0 71 L 138.0 71 L 138.0 71 L 143.2 71 L 143.2 87 L 148.5 87 L 148.5 71 L 153.7 71 L 153.7 87 L 158.9 87 L 158.9 71 L 164.1 71 L 164.1 87 L 169.4 87 L 169.4 71 L 174.6 71 L 174.6 87 L 179.8 87 L 179.8 71 L 185.1 71 L 185.1 87 L 190.3 87 L 190.3 71 L 195.5 71 L 195.5 87 L 200.7 87 L 200.7 71 L 206.0 71 L 206.0 87 L 211.2 87 L 211.2 71 L 216.4 71 L 216.4 87 L 221.6 87 L 221.6 71 L 226.9 71 L 226.9 87 L 232.1 87 L 232.1 71 L 237.3 71 L 237.3 87 L 242.6 87 L 242.6 71 L 247.8 71 L 247.8 87 L 253.0 87 L 253.0 71 L 258.2 71 L 258.2 87 L 263.5 87 L 263.5 71 L 270.8 71 L 270.8 87 L 276.0 87 L 276.0 71 L 281.2 71 L 281.2 87 L 286.5 87 L 286.5 71 L 291.7 71 L 291.7 87 L 296.9 87 L 296.9 71 L 302.2 71 L 302.2 87 L 307.4 87 L 307.4 71 L 312.6 71 L 312.6 87 L 317.8 87 L 317.8 71 L 323.1 71 L 323.1 87 L 328.3 87 L 328.3 71 L 333.5 71 L 333.5 87 L 338.8 87 L 338.8 71 L 344.0 71 L 344.0 87 L 349.2 87 L 349.2 71 L 354.4 71 L 354.4 87 L 359.7 87 L 359.7 71 L 364.9 71 L 364.9 87 L 370.1 87 L 370.1 71 L 375.3 71 L 375.3 87 L 380.6 87 L 380.6 71 L 385.8 71 L 385.8 87 L 391.0 87 L 391.0 71 L 396.3 71 L 396.3 87 L 401.5 87 L 401.5 71 L 406.7 71 L 406.7 87 L 411.9 87 L 411.9 71 L 417.2 71 L 417.2 87 L 422.4 87 L 422.4 71 L 427.6 71 L 427.6 87 L 432.9 87 L 432.9 71 L 438.1 71 L 438.1 87 L 443.3 87 L 443.3 71 L 448.5 71 L 448.5 87 L 453.8 87 L 453.8 71 L 459.0 71 L 459.0 87 L 464.2 87 L 464.2 71 L 469.4 71 L 469.4 87 L 474.7 87 L 474.7 71 L 479.9 71 L 479.9 87 L 485.1 87 L 485.1 71 L 490.4 71 L 490.4 87 L 495.6 87 L 495.6 71 L 500.8 71 L 500.8 87 L 506.0 87 L 506.0 71 L 513.4 71 L 513.4 87 L 518.6 87 L 518.6 71 L 523.8 71 L 523.8 87 L 529.0 87 L 529.0 71 L 534.3 71 L 534.3 87 L 539.5 87 L 539.5 71 L 544.7 71 L 544.7 87 L 550.0 87 L 550.0 71 L 555.2 71 L 555.2 87 L 560.4 87 L 560.4 71 L 565.6 71 L 565.6 87 L 570.9 87 L 570.9 71 L 576.1 71 L 576.1 87 L 581.3 87 L 581.3 71 L 586.6 71 L 586.6 87 L 591.8 87 L 591.8 71 L 599.1 71 L 599.1 87 L 604.3 87 L 604.3 71 L 609.6 71 L 609.6 87 L 614.8 87 L 614.8 71 L 620.0 71 L 620.0 87 L 625.2 87 L 625.2 71 L 630.5 71 L 630.5 87 L 635.7 87 L 635.7 71 L 640.9 71 L 640.9 87 L 646.2 87 L 646.2 71 L 651.4 71 L 651.4 87 L 656.6 87 L 656.6 71 L 661.8 71 L 661.8 87 L 667.1 87 L 667.1 71 L 672.3 71 L 672.3 87 L 677.5 87 L 677.5 71 L 682.8 71 L 682.8 87 L 688.0 87 L 688.0 71 L 693.2 71 L 693.2 87 L 698.4 87 L 698.4 71 L 703.7 71 L 703.7 87 L 708.9 87 L 708.9 71 L 714.1 71 L 714.1 87 L 719.3 87 L 719.3 71 L 724.6 71 L 724.6 87 L 729.8 87 L 729.8 71 L 735.0 71 L 735.0 87 L 740.3 87 L 740.3 71 L 745.5 71 L 745.5 87 L 750.7 87 L 750.7 71 L 755.9 71 L 755.9 87 L 761.2 87 L 761.2 71 L 766.4 71 L 766.4 87 L 771.6 87 L 771.6 71 L 776.9 71 L 776.9 87 L 782.1 87 L 782.1 71 L 787.3 71 L 787.3 87 L 792.5 87 L 792.5 71 L 797.8 71 L 797.8 87 L 803.0 87 L 803.0 71 L 808.2 71 L 808.2 87 L 813.4 87 L 813.4 71 L 818.7 71 L 818.7 87 L 823.9 87 L 823.9 71 L 829.1 71 L 829.1 87 L 834.4 87 L 834.4 71 L 839.6 71 L 839.6 87 L 844.8 87 L 844.8 71 L 850.0 71 L 850.0 87 L 855.3 87 L 855.3 71 L 860.5 71 L 860.5 87 L 865.7 87 L 865.7 71 L 871.0 71 L 871.0 87 L 876.2 87 L 876.2 71 L 881.4 71 L 881.4 87 L 886.6 87 L 886.6 71 L 891.9 71 L 891.9 87 L 897.1 87 L 897.1 71 L 902.3 71 L 902.3 87 L 907.5 87 L 907.5 71 L 912.8 71 L 912.8 87 L 918.0 87 L 918.0 71 L 923.2 71 L 923.2 87 L 928.5 87 L 928.5 71 L 933.7 71 L 933.7 87 L 938.9 87 L 938.9 71 L 944.1 71 L 944.1 87 L 949.4 87 L 949.4 71 L 954.6 71 L 954.6 87 L 959.8 87 L 959.8 71 L 965.1 71 L 965.1 87 L 970.3 87 L 970.3 71 L 975.5 71 L 975.5 87 L 980.7 87 L 980.7 71 L 986.0 71 L 986.0 87 L 991.2 87 L 991.2 71 L 996.4 71 L 996.4 87 L 1001.7 87 L 1001.7 71 L 1006.9 71 L 1006.9 87 L 1012.1 87 L 1012.1 71 L 1017.3 71 L 1017.3 87 L 1022.6 87 L 1022.6 71 L 1027.8 71 L 1027.8 87 L 1033.0 87 L 1033.0 71 L 1038.2 71 L 1038.2 87 L 1043.5 87 L 1043.5 71 L 1048.7 71 L 1048.7 87 L 1053.9 87 L 1053.9 71 L 1059.2 71 L 1059.2 87 L 1064.4 87 L 1064.4 71 L 1069.6 71 L 1069.6 87 L 1074.8 87 L 1074.8 71 L 1080.1 71 L 1080.1 87 L 1085.3 87 L 1085.3 71 L 1090.5 71 L 1090.5 87 L 1095.8 87 L 1095.8 71 L 1101.0 71 L 1101.0 87 L 1106.2 87 L 1106.2 71 L 1111.4 71 L 1111.4 87 L 1116.7 87 L 1116.7 71 L 1121.9 71 L 1121.9 87 L 1127.1 87 L 1127.1 71 L 1132.3 71 L 1132.3 87 L 1137.6 87 L 1137.6 71 L 1142.8 71 L 1142.8 87 L 1148.0 87 L 1148.0 71 L 1155.4 71 L 1155.4 87 L 1160.6 87 L 1160.6 71 L 1165.8 71 L 1165.8 87 L 1171.0 87 L 1171.0 71 L 1176.3 71 L 1176.3 87 L 1181.5 87 L 1181.5 71 L 1186.7 71 L 1186.7 87 L 1191.9 87 L 1191.9 71 L 1197.2 71 L 1197.2 87 L 1202.4 87 L 1202.4 71 L 1207.6 71 L 1207.6 87 L 1212.9 87 L 1212.9 71 L 1218.1 71 L 1218.1 87 L 1223.3 87 L 1223.3 71 L 1228.5 71 L 1228.5 87 L 1233.8 87 L 1233.8 71 L 1239.0 71 L 1239.0 87 L 1244.2 87 L 1244.2 71 L 1249.5 71 L 1249.5 87 L 1254.7 87 L 1254.7 71 L 1259.9 71 L 1259.9 87 L 1265.1 87 L 1265.1 71 L 1270.4 71 L 1270.4 87 L 1275.6 87 L 1275.6 71 L 1280.8 71 L 1280.8 87 L 1286.1 87 L 1286.1 71 L 1291.3 71 L 1291.3 87 L 1296.5 87 L 1296.5 71 L 1301.7 71 L 1301.7 87 L 1307.0 87 L 1307.0 71 L 1314.3 71 L 1314.3 87 L 1319.5 87 L 1319.5 71 L 1324.7 71 L 1324.7 87 L 1330.0 87 L 1330.0 71 L 1335.2 71 L 1335.2 87 L 1340.4 87 L 1340.4 71 L 1345.6 71 L 1345.6 87 L 1350.9 87 L 1350.9 71 L 1356.1 71 L 1356.1 87 L 1361.3 87 L 1361.3 71 L 1366.6 71 L 1366.6 87 L 1371.8 87 L 1371.8 71 L 1377.0 71 L 1377.0 87 L 1382.2 87 L 1382.2 71 L 1387.5 71 L 1387.5 87 L 1392.7 87 L 1392.7 71 L 1397.9 71 L 1397.9 87 L 1403.2 87 L 1403.2 71 L 1408.4 71 L 1408.4 87 L 1413.6 87 L 1413.6 71 L 1418.8 71 L 1418.8 87 L 1424.1 87 L 1424.1 71 L 1429.3 71 L 1429.3 87 L 1434.5 87 L 1434.5 71 L 1439.8 71 L 1439.8 87 L 1445.0 87 L 1445.0 71 L 1450.2 71 L 1450.2 87 L 1455.4 87 L 1455.4 71 L 1460.7 71 L 1460.7 87 L 1465.9 87 L 1465.9 71 L 1471.1 71 L 1471.1 87 L 1476.3 87 L 1476.3 71 L 1481.6 71 L 1481.6 87 L 1486.8 87 L 1486.8 71 L 1492.0 71 L 1492.0 87 L 1497.3 87 L 1497.3 71 L 1502.5 71 L 1502.5 87 L 1507.7 87 L 1507.7 71 L 1515.0 71 L 1515.0 87 L 1520.3 87 L 1520.3 71 L 1525.5 71 L 1525.5 87 L 1530.7 87 L 1530.7 71 L 1535.9 71 L 1535.9 87 L 1541.2 87 L 1541.2 71 L 1546.4 71 L 1546.4 87 L 1551.6 87 L 1551.6 71 L 1556.9 71 L 1556.9 87 L 1562.1 87 L 1562.1 71 L 1567.3 71 L 1567.3 87 L 1572.5 87 L 1572.5 71 L 1577.8 71 L 1577.8 87 L 1583.0 87 L 1583.0 71 L 1588.2 71 L 1588.2 87 L 1593.5 87 L 1593.5 71 L 1598.7 71 L 1598.7 87 L 1603.9 87 L 1603.9 71 L 1606.0 71" fill="none" stroke="#58a6ff" stroke-width="2.4" stroke-linejoin="round"/>
 <text x="12" y="117" class="sig" fill="#f85149">rst</text>
 <line x1="138" y1="129" x2="1606" y2="129" stroke="#21262d"/>
 <path d="M 138.0 105 L 138.0 105 L 138.0 105 L 150.5 105 L 150.5 121 L 265.6 121 L 265.6 105 L 288.6 105 L 288.6 121 L 508.1 121 L 508.1 105 L 531.1 105 L 531.1 121 L 593.9 121 L 593.9 105 L 616.9 105 L 616.9 121 L 1150.1 121 L 1150.1 105 L 1173.1 105 L 1173.1 121 L 1309.1 121 L 1309.1 105 L 1332.1 105 L 1332.1 121 L 1509.8 121 L 1509.8 105 L 1532.8 105 L 1532.8 121 L 1606.0 121" fill="none" stroke="#f85149" stroke-width="2.4" stroke-linejoin="round"/>
@@ -174,7 +164,7 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <path d="M 138.0 189 L 138.0 189 L 138.0 189 L 361.8 189 L 361.8 173 L 466.3 173 L 466.3 189 L 552.1 189 L 552.1 173 L 593.9 173 L 593.9 189 L 637.8 189 L 637.8 173 L 899.2 173 L 899.2 189 L 1606.0 189" fill="none" stroke="#3fb950" stroke-width="2.4" stroke-linejoin="round"/>
 <text x="12" y="219" class="sig" fill="#39d353">bt rx valid</text>
 <line x1="138" y1="231" x2="1606" y2="231" stroke="#21262d"/>
-<path d="M 138.0 223 L 138.0 223 L 138.0 223 L 1194.0 223 L 1194.0 207 L 1204.5 207 L 1204.5 223 L 1235.9 223 L 1235.9 207 L 1246.3 207 L 1246.3 223 L 1277.7 223 L 1277.7 207 L 1288.1 207 L 1288.1 223 L 1353.0 223 L 1353.0 207 L 1363.4 207 L 1363.4 223 L 1394.8 223 L 1394.8 207 L 1405.3 207 L 1405.3 223 L 1436.6 223 L 1436.6 207 L 1447.1 207 L 1447.1 223 L 1478.4 223 L 1478.4 207 L 1488.9 207 L 1488.9 223 L 1564.2 223 L 1564.2 207 L 1574.6 207 L 1574.6 223 L 1606.0 223" fill="none" stroke="#39d353" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M 138.0 223 L 138.0 223 L 138.0 223 L 1194.0 223 L 1194.0 207 L 1204.5 207 L 1204.5 223 L 1235.9 223 L 1235.9 207 L 1246.3 207 L 1246.3 223 L 1277.7 223 L 1277.7 207 L 1288.1 207 L 1288.1 223 L 1353.0 223 L 1353.0 207 L 1363.4 207 L 1363.4 223 L 1394.8 223 L 1394.8 207 L 1405.2 207 L 1405.2 223 L 1436.6 223 L 1436.6 207 L 1447.1 207 L 1447.1 223 L 1478.4 223 L 1478.4 207 L 1488.9 207 L 1488.9 223 L 1564.2 223 L 1564.2 207 L 1574.6 207 L 1574.6 223 L 1606.0 223" fill="none" stroke="#39d353" stroke-width="2.4" stroke-linejoin="round"/>
 <text x="12" y="253" class="sig" fill="#39d353">bt rx byte</text>
 <line x1="138" y1="265" x2="1606" y2="265" stroke="#21262d"/>
 <rect x="138.0" y="240" width="1056.0" height="18" rx="3" fill="#39d35322" stroke="#39d35366"/>
@@ -198,14 +188,14 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="1585.1" y="253.0" text-anchor="middle" class="bus">y</text>
 <text x="12" y="287" class="sig" fill="#d2a8ff">bt tx valid</text>
 <line x1="138" y1="299" x2="1606" y2="299" stroke="#21262d"/>
-<path d="M 138.0 291 L 138.0 291 L 138.0 291 L 317.8 291 L 317.8 275 L 328.3 275 L 328.3 291 L 370.1 291 L 370.1 275 L 380.6 275 L 380.6 291 L 422.4 291 L 422.4 275 L 432.9 275 L 432.9 291 L 474.7 291 L 474.7 275 L 485.1 275 L 485.1 291 L 560.4 291 L 560.4 275 L 570.9 275 L 570.9 291 L 646.2 291 L 646.2 275 L 656.6 275 L 656.6 291 L 907.6 291 L 907.6 275 L 918.0 275 L 918.0 291 L 1562.1 291 L 1562.1 275 L 1572.5 275 L 1572.5 291 L 1606.0 291" fill="none" stroke="#d2a8ff" stroke-width="4" stroke-linejoin="round"/>
+<path d="M 138.0 291 L 138.0 291 L 138.0 291 L 317.8 291 L 317.8 275 L 328.3 275 L 328.3 291 L 370.1 291 L 370.1 275 L 380.6 275 L 380.6 291 L 422.4 291 L 422.4 275 L 432.9 275 L 432.9 291 L 474.7 291 L 474.7 275 L 485.1 275 L 485.1 291 L 560.4 291 L 560.4 275 L 570.9 275 L 570.9 291 L 646.2 291 L 646.2 275 L 656.6 275 L 656.6 291 L 907.5 291 L 907.5 275 L 918.0 275 L 918.0 291 L 1562.1 291 L 1562.1 275 L 1572.5 275 L 1572.5 291 L 1606.0 291" fill="none" stroke="#d2a8ff" stroke-width="4" stroke-linejoin="round"/>
 <g><rect x="304.8" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="317.8" y="265" text-anchor="middle" class="chip">2</text></g>
 <g><rect x="357.1" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="370.1" y="265" text-anchor="middle" class="chip">4</text></g>
 <g><rect x="409.4" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="422.4" y="265" text-anchor="middle" class="chip">3</text></g>
 <g><rect x="461.7" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="474.7" y="265" text-anchor="middle" class="chip">1</text></g>
 <g><rect x="547.4" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="560.4" y="265" text-anchor="middle" class="chip">4</text></g>
 <g><rect x="633.2" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="646.2" y="265" text-anchor="middle" class="chip">3</text></g>
-<g><rect x="894.6" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="907.6" y="265" text-anchor="middle" class="chip">1</text></g>
+<g><rect x="894.5" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="907.5" y="265" text-anchor="middle" class="chip">1</text></g>
 <g><rect x="1549.1" y="253" width="26" height="16" rx="4" fill="#6e40c9"/><text x="1562.1" y="265" text-anchor="middle" class="chip">2</text></g>
 <text x="12" y="321" class="sig" fill="#d2a8ff">bt tx byte</text>
 <line x1="138" y1="333" x2="1606" y2="333" stroke="#21262d"/>
@@ -227,7 +217,7 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
 <text x="625.2" y="321.0" text-anchor="middle" class="bus">0</text>
 <rect x="646.2" y="308" width="261.4" height="18" rx="3" fill="#d2a8ff22" stroke="#d2a8ff66"/>
 <text x="776.9" y="321.0" text-anchor="middle" class="bus">3</text>
-<rect x="907.6" y="308" width="253.0" height="18" rx="3" fill="#d2a8ff22" stroke="#d2a8ff66"/>
+<rect x="907.5" y="308" width="253.0" height="18" rx="3" fill="#d2a8ff22" stroke="#d2a8ff66"/>
 <text x="1034.1" y="321.0" text-anchor="middle" class="bus">1</text>
 <rect x="1160.6" y="308" width="401.5" height="18" rx="3" fill="#d2a8ff22" stroke="#d2a8ff66"/>
 <text x="1361.3" y="321.0" text-anchor="middle" class="bus">0</text>
@@ -245,75 +235,76 @@ h1{font-size:24px;margin:0 0 4px} h2{font-size:15px;margin:0 0 12px;color:#e6edf
  <span style="color:#ffab70">&#9632; LED (D13)</span>
  <span style="color:#d2a8ff">&#9632; Bluetooth tx bytes (annotated 1-4)</span>
  <span style="color:#3fb950">&#9632; Bluetooth rx ('y'/'n'/'x')</span>
- <span style="color:#39d353">&#9632; 'y'/'n'/'x' shown in rx byte lane</span>
 </div>
 
 <h2 style="margin-top:30px">Test detail</h2>
 <div class="grid">
- <div class="card"><h2>HDL &mdash; cocotb + Icarus (7)</h2><div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_reset_idle</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_hall_state_bytes</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_simultaneous_change_emits_once</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_no_repeat_while_held</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_led_toggle</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_unknown_rx_byte_ignored</span><span class="ttime">0.00s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_interleaved_tx_rx</span><span class="ttime">0.00s</span></div></div>
- <div class="card"><h2>Python &mdash; pytest (9)</h2><div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_calibration_picks_colour_and_mirrors</span><span class="ttime">0.19s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_done_requires_a_colour_first</span><span class="ttime">0.01s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_dragging_paint_icon_opens_paint_screen</span><span class="ttime">0.01s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_dragging_led_icon_opens_led_screen</span><span class="ttime">0.01s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_paint_screen_draws_on_canvas</span><span class="ttime">0.02s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_key2_returns_to_main_screen</span><span class="ttime">0.01s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_led_screen_sends_y_and_n</span><span class="ttime">0.02s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_all_screens_render</span><span class="ttime">0.02s</span></div>
-<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_placeholders_generated_for_missing_assets</span><span class="ttime">0.00s</span></div></div>
+ <div class="card"><h2>HDL &mdash; cocotb + Icarus (7)</h2><div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_reset_idle</span><span class="ttime">3 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_hall_state_bytes</span><span class="ttime">2 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_simultaneous_change_emits_once</span><span class="ttime">1 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_no_repeat_while_held</span><span class="ttime">3 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_led_toggle</span><span class="ttime">1 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_unknown_rx_byte_ignored</span><span class="ttime">1 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_gesture_controller :: test_interleaved_tx_rx</span><span class="ttime">1 ms</span></div></div>
+ <div class="card"><h2>Python &mdash; pytest (9)</h2><div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_calibration_picks_colour_and_mirrors</span><span class="ttime">84 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_done_requires_a_colour_first</span><span class="ttime">5 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_dragging_paint_icon_opens_paint_screen</span><span class="ttime">8 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_dragging_led_icon_opens_led_screen</span><span class="ttime">6 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_paint_screen_draws_on_canvas</span><span class="ttime">13 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_key2_returns_to_main_screen</span><span class="ttime">6 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_led_screen_sends_y_and_n</span><span class="ttime">12 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_all_screens_render</span><span class="ttime">10 ms</span></div>
+<div class="trow"><span class="mark" style="color:#3fb950">✓</span><span class="tname">test_app :: test_placeholders_generated_for_missing_assets</span><span class="ttime">3 ms</span></div></div>
 </div>
 
-<div class="foot">generated from hdl/sim_build/waves.vcd (Icarus VCD dump) &middot; hdl/results.xml &middot; pytest JUnit XML</div>
+<div class="foot">generated by hdl/make_visual.py from the Icarus VCD dump
+and JUnit XML results of this run</div>
 </div>
 
 <script>
 const DATA = {"clk": [[0, 1], [5000, 0], [10000, 1], [15000, 0], [20000, 1], [25000, 0], [30000, 1], [35000, 0], [40000, 1], [45000, 0], [50000, 1], [55000, 0], [60000, 1], [65000, 0], [70000, 1], [75000, 0], [80000, 1], [85000, 0], [90000, 1], [95000, 0], [100000, 1], [105000, 0], [110000, 1], [115000, 0], [120000, 1], [127001, 0], [132001, 1], [137001, 0], [142001, 1], [147001, 0], [152001, 1], [157001, 0], [162001, 1], [167001, 0], [172001, 1], [177001, 0], [182001, 1], [187001, 0], [192001, 1], [197001, 0], [202001, 1], [207001, 0], [212001, 1], [217001, 0], [222001, 1], [227001, 0], [232001, 1], [237001, 0], [242001, 1], [247001, 0], [252001, 1], [257001, 0], [262001, 1], [267001, 0], [272001, 1], [277001, 0], [282001, 1], [287001, 0], [292001, 1], [297001, 0], [302001, 1], [307001, 0], [312001, 1], [317001, 0], [322001, 1], [327001, 0], [332001, 1], [337001, 0], [342001, 1], [347001, 0], [352001, 1], [359002, 0], [364002, 1], [369002, 0], [374002, 1], [379002, 0], [384002, 1], [389002, 0], [394002, 1], [399002, 0], [404002, 1], [409002, 0], [414002, 1], [419002, 0], [424002, 1], [429002, 0], [434002, 1], [441003, 0], [446003, 1], [451003, 0], [456003, 1], [461003, 0], [466003, 1], [471003, 0], [476003, 1], [481003, 0], [486003, 1], [491003, 0], [496003, 1], [501003, 0], [506003, 1], [511003, 0], [516003, 1], [521003, 0], [526003, 1], [531003, 0], [536003, 1], [541003, 0], [546003, 1], [551003, 0], [556003, 1], [561003, 0], [566003, 1], [571003, 0], [576003, 1], [581003, 0], [586003, 1], [591003, 0], [596003, 1], [601003, 0], [606003, 1], [611003, 0], [616003, 1], [621003, 0], [626003, 1], [631003, 0], [636003, 1], [641003, 0], [646003, 1], [651003, 0], [656003, 1], [661003, 0], [666003, 1], [671003, 0], [676003, 1], [681003, 0], [686003, 1], [691003, 0], [696003, 1], [701003, 0], [706003, 1], [711003, 0], [716003, 1], [721003, 0], [726003, 1], [731003, 0], [736003, 1], [741003, 0], [746003, 1], [751003, 0], [756003, 1], [761003, 0], [766003, 1], [771003, 0], [776003, 1], [781003, 0], [786003, 1], [791003, 0], [796003, 1], [801003, 0], [806003, 1], [811003, 0], [816003, 1], [821003, 0], [826003, 1], [831003, 0], [836003, 1], [841003, 0], [846003, 1], [851003, 0], [856003, 1], [861003, 0], [866003, 1], [871003, 0], [876003, 1], [881003, 0], [886003, 1], [891003, 0], [896003, 1], [901003, 0], [906003, 1], [911003, 0], [916003, 1], [921003, 0], [926003, 1], [931003, 0], [936003, 1], [941003, 0], [946003, 1], [951003, 0], [956003, 1], [961003, 0], [966003, 1], [973004, 0], [978004, 1], [983004, 0], [988004, 1], [993004, 0], [998004, 1], [1003004, 0], [1008004, 1], [1013004, 0], [1018004, 1], [1023004, 0], [1028004, 1], [1033004, 0], [1038004, 1], [1043004, 0], [1048004, 1], [1053004, 0], [1058004, 1], [1063004, 0], [1068004, 1], [1073004, 0], [1078004, 1], [1083004, 0], [1088004, 1], [1093004, 0], [1098004, 1], [1103004, 0], [1108004, 1], [1113004, 0], [1118004, 1], [1125005, 0], [1130005, 1], [1135005, 0], [1140005, 1], [1145005, 0], [1150005, 1], [1155005, 0], [1160005, 1], [1165005, 0], [1170005, 1], [1175005, 0], [1180005, 1], [1185005, 0], [1190005, 1], [1195005, 0], [1200005, 1], [1205005, 0], [1210005, 1], [1215005, 0], [1220005, 1], [1225005, 0], [1230005, 1], [1235005, 0], [1240005, 1], [1245005, 0], [1250005, 1], [1255005, 0], [1260005, 1], [1265005, 0], [1270005, 1], [1275005, 0], [1280005, 1], [1285005, 0], [1290005, 1], [1295005, 0], [1300005, 1], [1305005, 0], [1310005, 1], [1317006, 0], [1322006, 1], [1327006, 0], [1332006, 1], [1337006, 0], [1342006, 1], [1347006, 0], [1352006, 1], [1357006, 0], [1362006, 1], [1367006, 0], [1372006, 1], [1377006, 0], [1382006, 1], [1387006, 0], [1392006, 1], [1397006, 0], [1402006, 1]], "rst": [[0, 1], [12000, 0], [122001, 1], [144001, 0], [354002, 1], [376002, 0], [436003, 1], [458003, 0], [968004, 1], [990004, 0], [1120005, 1], [1142005, 0], [1312006, 1], [1334006, 0]], "hall_1": [[0, 0], [164001, 1], [264001, 0], [396002, 1], [436003, 0], [1354006, 1]], "hall_2": [[0, 0], [214001, 1], [314001, 0], [396002, 1], [436003, 0], [478003, 1], [728003, 0]], "rx_valid": [[0, 0], [1010004, 1], [1020004, 0], [1050004, 1], [1060004, 0], [1090004, 1], [1100004, 0], [1162005, 1], [1172005, 0], [1202005, 1], [1212005, 0], [1242005, 1], [1252005, 0], [1282005, 1], [1292005, 0], [1364006, 1], [1374006, 0]], "rx_data": [[0, 0], [1010004, 121], [1050004, 110], [1090004, 121], [1120005, 0], [1162005, 121], [1202005, 120], [1242005, 110], [1282005, 0], [1364006, 121]], "tx_valid": [[0, 0], [172001, 1], [182001, 0], [222001, 1], [232001, 0], [272001, 1], [282001, 0], [322001, 1], [332001, 0], [404002, 1], [414002, 0], [486003, 1], [496003, 0], [736003, 1], [746003, 0], [1362006, 1], [1372006, 0]], "tx_data": [[0, 0], [172001, 2], [222001, 4], [272001, 3], [322001, 1], [364002, 0], [404002, 4], [446003, 0], [486003, 3], [736003, 1], [978004, 0], [1362006, 2]], "led": [[0, 0], [1018004, 1], [1058004, 0], [1098004, 1], [1130005, 0], [1170005, 1], [1250005, 0], [1372006, 1]]};
-const T_MAX = 1404.0;
+const T_MAX = 1404.006;
 const X0 = 138, X1 = 1606;
 const SIGS = [["clk", "bit"], ["rst", "bit"], ["hall_1", "bit"], ["hall_2", "bit"], ["rx_valid", "bit"], ["rx_data", "bus"], ["tx_valid", "bit"], ["tx_data", "bus"], ["led", "bit"]];
-function lookup(ch, t) {
+function lookupCh(ch, t) {
   let v = ch.length ? ch[0][1] : 0;
   for (const [tt, vv] of ch) { if (tt / 1000 > t) break; v = vv; }
   return v;
 }
 const box = document.getElementById('wavebox');
 const svgEl = document.getElementById('wsvg');
-const tip = document.getElementById('tip');
-const cursor = document.getElementById('cursor');
-const FMT = (k, v) => {
-  if (k === 'rx_data' || k === 'tx_data') {
-    if (v >= 32 && v < 127) return "'" + String.fromCharCode(v) + "' (0x" + v.toString(16) + ")";
-    return v + " (0x" + Number(v).toString(16) + ")";
-  }
-  return v;
-};
-svgEl.addEventListener('mousemove', (e) => {
-  const pt = svgEl.getBoundingClientRect();
-  const sx = (e.clientX - pt.left) * (1620 / pt.width);
-  if (sx < X0 || sx > X1) { tip.style.display = 'none'; cursor.setAttribute('visibility', 'hidden'); return; }
-  const t = (sx - X0) / (X1 - X0) * T_MAX;
-  cursor.setAttribute('x1', sx); cursor.setAttribute('x2', sx);
-  cursor.setAttribute('visibility', 'visible');
-  let rows = '<b>t = ' + t.toFixed(1) + ' ns</b>';
-  for (const [k, kind] of SIGS) {
-    const v = lookup(DATA[k], t * 1000);
-    rows += '<br>' + k + ': ' + (kind === 'bus' ? FMT(k, v) : (v ? '1 / HIGH' : '0 / LOW'));
-  }
-  tip.innerHTML = rows;
-  tip.style.display = 'block';
-  const bx = box.getBoundingClientRect();
-  let lx = e.clientX - bx.left + box.scrollLeft + 18;
-  if (lx + 240 > box.scrollLeft + box.clientWidth) lx -= 275;
-  tip.style.left = lx + 'px';
-  tip.style.top = (e.clientY - bx.top + 14) + 'px';
-});
-svgEl.addEventListener('mouseleave', () => {
-  tip.style.display = 'none'; cursor.setAttribute('visibility', 'hidden');
-});
+if (svgEl) {
+  const tip = document.getElementById('tip');
+  const cursor = document.getElementById('cursor');
+  const FMT = (k, v) => {
+    if (k === 'rx_data' || k === 'tx_data')
+      return (v >= 32 && v < 127 ? "'" + String.fromCharCode(v) + "' " : '') +
+             v + ' (0x' + Number(v).toString(16) + ')';
+    return v;
+  };
+  svgEl.addEventListener('mousemove', (e) => {
+    const pt = svgEl.getBoundingClientRect();
+    const sx = (e.clientX - pt.left) * (1620 / pt.width);
+    if (sx < X0 || sx > X1) { tip.style.display = 'none'; cursor.setAttribute('visibility', 'hidden'); return; }
+    const t = (sx - X0) / (X1 - X0) * T_MAX;
+    cursor.setAttribute('x1', sx); cursor.setAttribute('x2', sx);
+    cursor.setAttribute('visibility', 'visible');
+    let rows = '<b>t = ' + t.toFixed(1) + ' ns</b>';
+    for (const [k, kind] of SIGS) {
+      const v = lookupCh(DATA[k], t * 1000);
+      rows += '<br>' + k + ': ' + (kind === 'bus' ? FMT(k, v) : (v ? '1 / HIGH' : '0 / LOW'));
+    }
+    tip.innerHTML = rows;
+    tip.style.display = 'block';
+    const bx = box.getBoundingClientRect();
+    let lx = e.clientX - bx.left + box.scrollLeft + 18;
+    if (lx + 250 > box.scrollLeft + box.clientWidth) lx -= 285;
+    tip.style.left = lx + 'px';
+    tip.style.top = (e.clientY - bx.top + 14) + 'px';
+  });
+  svgEl.addEventListener('mouseleave', () => {
+    tip.style.display = 'none'; cursor.setAttribute('visibility', 'hidden');
+  });
+}
 </script>
 </body></html>

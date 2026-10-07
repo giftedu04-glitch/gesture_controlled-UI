@@ -6,6 +6,8 @@ venv/
 # cocotb / Icarus build artefacts
 hdl/sim_build/
 hdl/results.xml
+pytest_junit.xml
+visual-report/
 
 # placeholder images are generated at runtime - drop your own PNGs here
 python/assets/*.png

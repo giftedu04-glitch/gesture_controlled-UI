@@ -19,13 +19,39 @@ jobs:
           python-version: "3.13"
           cache: pip
 
-      - name: Install Icarus Verilog
+      - name: Install system libraries (Icarus + OpenCV)
         run: |
           sudo apt-get update
-          sudo apt-get install -y iverilog
+          sudo apt-get install -y iverilog libgl1 libglib2.0-0
 
-      - name: Install cocotb
-        run: pip install cocotb
+      - name: Install dependencies
+        run: pip install cocotb -r requirements.txt pytest
 
-      - name: Run HDL tests
-        run: python hdl/test_gesture_controller.py
+      - name: Run HDL tests (with VCD wave dump)
+        run: python hdl/test_gesture_controller.py --waves
+
+      - name: Run Python tests (JUnit XML)
+        if: always()
+        run: python -m pytest python/tests -q --junitxml=pytest_junit.xml
+
+      - name: Generate visual report
+        if: always()
+        run: >
+          python hdl/make_visual.py
+          --vcd hdl/sim_build/waves.vcd
+          --hdl-xml hdl/results.xml
+          --pytest-xml pytest_junit.xml
+          --out visual-report/test_results.html
+
+      - name: Upload visual-test-results artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-test-results
+          path: |
+            visual-report/test_results.html
+            hdl/sim_build/waves.vcd
+            hdl/results.xml
+            pytest_junit.xml
+          if-no-files-found: warn
+          retention-days: 90
