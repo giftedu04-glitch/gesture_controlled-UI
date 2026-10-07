@@ -8,3 +8,6 @@ hdl/sim_build/
 hdl/results.xml
 pytest_junit.xml
 visual-report/
+
+# arduino-cli build output (Wokwi simulation firmware)
+arduino/gesture_controller/build/

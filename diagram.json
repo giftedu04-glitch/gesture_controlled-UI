@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "author": "gesture_controlled-UI",
+  "editor": "wokwi",
+  "serialMonitor": {
+    "display": "always"
+  },
+  "parts": [
+    {
+      "id": "nano",
+      "type": "wokwi-arduino-nano",
+      "left": 430,
+      "top": 40,
+      "attrs": {}
+    },
+    {
+      "id": "hall1",
+      "type": "wokwi-pushbutton",
+      "left": 120,
+      "top": 180,
+      "attrs": {
+        "color": "blue",
+        "label": "hall 1 -> D9",
+        "key": "1",
+        "bounce": "0"
+      }
+    },
+    {
+      "id": "hall2",
+      "type": "wokwi-pushbutton",
+      "left": 120,
+      "top": 400,
+      "attrs": {
+        "color": "blue",
+        "label": "hall 2 -> D10",
+        "key": "2",
+        "bounce": "0"
+      }
+    },
+    {
+      "id": "ru1",
+      "type": "wokwi-resistor",
+      "left": 330,
+      "top": 150,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "id": "ru2",
+      "type": "wokwi-resistor",
+      "left": 330,
+      "top": 370,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "id": "led1",
+      "type": "wokwi-led",
+      "left": 700,
+      "top": 230,
+      "attrs": { "color": "green", "label": "D13 LED" }
+    },
+    {
+      "id": "rl1",
+      "type": "wokwi-resistor",
+      "left": 700,
+      "top": 130,
+      "attrs": { "value": "220" }
+    },
+    {
+      "id": "title",
+      "type": "wokwi-text",
+      "left": 60,
+      "top": 20,
+      "attrs": { "text": "Gesture Controller - Arduino Nano", "fontSize": 22 }
+    },
+    {
+      "id": "t_hall",
+      "type": "wokwi-text",
+      "left": 60,
+      "top": 660,
+      "attrs": {
+        "text": "buttons = A3144 hall sensors (press: magnet near -> LOW, 10k pull-up). Keys 1 / 2 also work.",
+        "fontSize": 14,
+        "color": "#8b949e"
+      }
+    },
+    {
+      "id": "t_bt",
+      "type": "wokwi-text",
+      "left": 500,
+      "top": 690,
+      "attrs": {
+        "text": "HC-05 Bluetooth (D11/D12) -> serial monitor: type y / n to toggle the LED",
+        "fontSize": 14,
+        "color": "#8b949e"
+      }
+    }
+  ],
+  "connections": [
+    ["hall1:1.r", "nano:9", "green", []],
+    ["hall1:2.r", "nano:GND", "black", []],
+    ["ru1:1", "hall1:1.r", "red", []],
+    ["ru1:2", "nano:5V", "red", []],
+
+    ["hall2:1.r", "nano:10", "green", []],
+    ["hall2:2.r", "nano:GND.2", "black", []],
+    ["ru2:1", "hall2:1.r", "red", []],
+    ["ru2:2", "nano:5V.2", "red", []],
+
+    ["rl1:1", "nano:13", "orange", []],
+    ["rl1:2", "led1:A", "orange", []],
+    ["led1:C", "nano:GND.3", "black", []],
+
+    ["nano:11", "$serialMonitor:TX", "cyan", []],
+    ["nano:12", "$serialMonitor:RX", "cyan", []]
+  ]
+}

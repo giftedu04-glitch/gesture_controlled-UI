@@ -41,6 +41,8 @@ unchanged in behaviour and lives in `arduino/`.
 │   ├── assets.py                    # image loading with generated placeholders
 │   └── assets/                      # the six UI PNGs (regenerate: generate.py)
 ├── requirements.txt
+├── wokwi.toml                        # Wokwi simulation config
+├── diagram.json                      # Wokwi circuit (hall buttons, LED, serial monitor)
 └── README.md
 ```
 
@@ -61,6 +63,37 @@ hall sensors, a small magnet on the thumb, HC-05/HC-06 Bluetooth module, 9V
 battery, dot board, gloves, ...) is listed in the
 [Circuit Digest VR project](https://circuitdigest.com/microcontroller-projects/virtual-reality-using-arduino)
 this repository is based on.
+
+## Circuit simulation (Wokwi)
+
+The circuit can be assembled and exercised in [Wokwi](https://wokwi.com)
+without any hardware - the diagram at the repository root
+([diagram.json](diagram.json)) pairs the Arduino Nano with the two A3144 hall
+sensors (represented by buttons with 10 k pull-ups: pressing = magnet near =
+LOW) and the LED on D13.
+
+Wokwi has no HC-05 part, so the Bluetooth UART (D11/D12) is wired to the
+serial monitor instead. In the simulation:
+
+- the gesture bytes (1-4) sent by the firmware appear in the serial monitor,
+- type `y` / `n` there to toggle the LED, exactly like the desktop app does,
+- the `Waveforms` tab shows the raw UART traffic on D11/D12.
+
+To run it:
+
+1. Build the firmware with [arduino-cli](https://arduino.github.io/arduino-cli/):
+
+   ```bash
+   arduino-cli compile --fqbn arduino:avr:nano --export-binaries arduino/gesture_controller
+   ```
+
+2. Open this repository in VS Code with the
+   [Wokwi for VS Code](https://marketplace.visualstudio.com/items?itemName=wokwi.wokwi-vscode)
+   extension, press F1 and select **Wokwi: Start Simulator**.
+
+Click `hall 1` / `hall 2` in the diagram (or press keys **1** / **2** while
+the diagram has focus) to fire the hall sensors, and watch the serial monitor.
+The diagram can be checked with `wokwi-cli lint`.
 
 ## Software setup
 

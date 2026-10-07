@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'arduino/gesture_controller/build/arduino.avr.nano/gesture_controller.ino.hex'
+elf = 'arduino/gesture_controller/build/arduino.avr.nano/gesture_controller.ino.elf'
